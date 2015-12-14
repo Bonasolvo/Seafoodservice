@@ -1,0 +1,21 @@
+{% extends 'new_base.html' %}
+{% load i18n admin_tools_menu_tags %}
+
+	{% block page %}
+		{% block breadcrumbs %}
+			<ul class="breadcrumbs">
+				<li><a href="{% url 'home' %}">{% trans "Home" %}</a></li>
+				<li><a href="{% url 'usefull_information' %}">{% trans "Useful information" %}</a></li>
+				<li>{{ news.title }}</li>
+			</ul>
+		{% endblock %}
+		<article class="news">
+        	<div class="news-item">
+                <h3 class="news_title">{{ news.title }}</h3>
+				<div class="news_text">
+					{{ news.body|safe }}
+				</div>
+        	</div>
+		</article>
+
+	{% endblock %}

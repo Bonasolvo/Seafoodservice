@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html>
+{% load i18n admin_tools_menu_tags %}
+{% load active_url %}
+<html lang="{{ LANGUAGE_CODE|default:"en-us" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+    {% block head %}
+        <title>Sea food</title>
+        <link rel="stylesheet" href="{{ MEDIA_URL }}css/style.css">
+        <script src="{{ MEDIA_URL }}js/jquery-2.1.0.min.js"></script>
+        <link rel="shortcut icon" type="image/x-icon" href="{{ MEDIA_URL }}css/images/logo.png"/>
+    {% endblock %}
+</head>
+<body>
+<header>
+    {% block header %}
+        {% include 'header.html' %}
+        <div class="logo">
+        <div class="padding_from_logo">
+            <div class="header_layer_1">
+                <h3 class="slogan">{% trans "In partnership" %}<br>
+                    {% trans "with success" %}</h3>
+
+                <div class="number">
+                    <p>+375 17 <span>288-97-75</span></p>
+                </div>
+            </div>
+            <div class="header_layer_2">
+                <div class="languages">
+                    <form name="setLangRussian" action="/i18n/setlang/" method="POST">{% csrf_token %}
+                        <input name="next" type="hidden" value="/"/>
+                        <input type="hidden" name="language" value="ru"/>
+                    </form>
+                    <form name="setLangEnglish" action="/i18n/setlang/" method="POST">{% csrf_token %}
+                        <input name="next" type="hidden" value="/"/>
+                        <input type="hidden" name="language" value="en"/>
+                    </form>
+                    <a href="#" class="{% if language == 'ru' %}active_language{% else %}language{% endif %}"
+                       onclick="document.setLangRussian.submit();return false;">Ru</a>
+                    <a href="#" class="{% if language == 'en' %}active_language{% else %}language{% endif %}"
+                       onclick="document.setLangEnglish.submit();return false;">En</a>
+                </div>
+                <div class="header_contacts">
+                    <a href=""><img src="{{ MEDIA_URL }}css/images/vk.png" alt=""></a>
+                    <a href=""><img src="{{ MEDIA_URL }}css/images/facebook.png" alt=""></a>
+                    <a href=""><img src="{{ MEDIA_URL }}css/images/twitter.png" alt=""></a>
+                </div>
+            </div>
+            <div class="header_layer_3">
+                <ul class="top_nav">
+                    <li id="home" class="{% active request "^/$" %}">
+                        <a href="{% url 'home' %}">{% trans "Home" %}</a>
+                    </li>
+                    <li id="services" class="{% active request "^/services/" %}">
+                        <a href="{% url 'services' %}">{% trans "Services" %}</a>
+                    </li>
+                    <li id="usefull"
+                            class="{% active request "^/usefull-information/" %}">
+                        <a href="{% url 'usefull_information' %}">{% trans "Useful Information" %}</a>
+                    </li>
+                    <li id="contacts" class="{% active request "^/contacts/" %}">
+                        <a href="{% url 'contacts' %}">{% trans "Contacts" %}</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="logo_img">
+            <a href="{% url "home" %}">
+                <img src="{{ MEDIA_URL }}css/images/logo.png" alt="" id="logo">
+            </a>
+        </div>
+    </div>
+    {% endblock %}
+    {% block extrahead %}{% endblock %}
+</header>
+
+
+<div class="container">
+<div class="left_container">
+    <aside>
+        {% if last_news %}
+            {% block last_news %}
+                <a href="{% url 'news' %}" class="title_link">
+                    <div class="aside_title">{% trans "News" %}</div>
+                </a>
+                {% for news_item in last_news %}
+                    <div class="news">
+                        <p class="date">{{ news_item.date|date:"d.m.Y" }}</p>
+                        <a href="{% url 'news_item' news_item.id %}"><p class="text_news">{{ news_item.title }}</p></a>
+                    </div>
+                {% endfor %}
+            {% endblock %}
+        {% elif block_information %}
+            {% block block_information %}
+                <a href="{% url 'usefull_information' %}" class="title_link">
+                    <div class="aside_title">{% trans "Usefull information" %}</div>
+                </a>
+                {% for news_item in block_information %}
+                    <div class="news">
+                        <a href="{% url 'usefull_information_item' news_item.id %}"><p
+                                class="text_news">{{ news_item.title }}</p></a>
+                    </div>
+                {% endfor %}
+            {% endblock %}
+        {% endif %}
+
+        {% block gallery %}
+            <div class="galery">
+                <a href="{% url 'gallery' %}" class="galery_link">{% trans "Gallery" %}</a>
+                <a href="{% url 'gallery' %}"><img src="{{ MEDIA_URL }}css/images/photo.png" alt="" class="photo"></a>
+                <a href="{% url 'gallery' %}"><img src="{{ MEDIA_URL }}css/images/video.png" alt="" class="video"></a>
+            </div>
+        {% endblock %}
+        <a href="{% url "certificates" %}" class="title_link">
+            <div class="aside_title">{% trans "Certificates" %}</div>
+        </a>
+        {% for banner in banners %}
+            <div class="banner">
+                <p>{{ banner.title }}</p>
+            </div>
+        {% endfor %}
+    </aside>
+</div>
+<div class="main_content">
+    {% block content %}
+        {% for message in notifications_messages %}
+            <p class="notification_error"> {{ message }}</p>
+        {% endfor %}
+    {% endblock %}
+</div>
+</div>
+
+<footer>
+    {% block footer %}
+        <div class="left_footer_block">
+            <p>{% trans "RB, Minsk, 220053" %}</p>
+
+            <p>{% trans "str. Novovilenskaya, 8, 24" %}</p>
+
+            <p>{% trans "Numb." %}: +375 17 <span>233-19-16</span></p>
+
+            <p>+375 17 <span>233-19-16</span></p>
+
+            <p>{% trans "Fax" %}: +375 17 <span>233-19-16</span></p>
+            <a href="https://www.google.com/maps/preview?ll=53.924397,27.542754&z=13&t=m&hl=ru-RU&gl=US&mapclient=embed&q=%D0%9D%D0%BE%D0%B2%D0%BE%D0%B2%D0%B8%D0%BB%D0%B5%D0%BD%D1%81%D0%BA%D0%B0%D1%8F+%D1%83%D0%BB.+8+%D0%9C%D0%B8%D0%BD%D1%81%D0%BA+%D0%91%D0%B5%D0%BB%D0%B0%D1%80%D1%83%D1%81%D1%8C&google_abuse=GOOGLE_ABUSE_EXEMPTION%3DID%3Dcc83db44fca3e98e:TM%3D1412677903:C%3Dc:IP%3D178.124.104.205-:S%3DAPGng0u00mgs3xJy0jZ1QDcae-tphVgjng%3B+path%3D/%3B+domain%3Dgoogle.com%3B+expires%3DTue,+07-Oct-2014+13:31:43+GMT"
+               class="map" target="_blank">{% trans "Go to map" %}</a>
+        </div>
+        <div class="right_footer_block">
+            <div class="footer_block">
+                <a class="home_title" href="{% url "home" %}">{% trans "Home" %}</a>
+                <a class="services_title" href="{% url 'services' %}">{% trans "Services" %}</a>
+                <a class="useful_title" href="{% url 'usefull_information' %}">{% trans "Useful Information" %}</a>
+                <a class="contacts_title" href="{% url 'contacts' %}">{% trans "Contacts" %}</a>
+            </div>
+            <div class="copyright">
+                <a class="date_of_copyright">© 2010-2014</a>
+
+                <div class="copyright_developed">
+                    <img src="{{ MEDIA_URL }}css/images/zod4ie.jpg" style="margin-right:5px; height:20px;" alt="">
+                    {% trans "Site is developed " %}
+                    <a href="http://zod4ie.com/" target="_blank">{% trans "by studio Zod4ie" %}</a>
+                </div>
+            </div>
+        </div>
+
+
+        <a href="">
+            <div class="online">
+                <div id="SITEHELP_CONTAINER_1974" class="SITEHELP_CONTAINER_1974"></div>
+            </div>
+        </a>
+
+<script type="text/javascript" language="javascript">
+	var s_loaded_1997 = false;
+	var s_old_onload = window.onload;
+	window.onload = function () {
+	  if (s_loaded_1997) return; s_loaded_1997 = true;
+		if (typeof(s_old_onload) == 'function') { try { s_old_onload(); } catch(e) {}; };
+		var sitehelp_s = document.createElement('script');
+		sitehelp_s.type = 'text/javascript';
+		sitehelp_s.src = top.location.protocol + '//c.sitehelp.im/code.cgi?c=1997' + (top.location.protocol=='http:' ? '' : '&ssl=1') + '&rnd=' + Math.random();
+		document.body.appendChild(sitehelp_s);
+	};
+</script>
+    {% endblock %}
+    </footer>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{% extends 'new_base.html' %}
+{% load i18n admin_tools_menu_tags helper_show %}
+
+
+{% block news %}
+    {% show 'usefull_information' 5 %}
+{% endblock %}
+		
+{% block page %}
+	{% block breadcrumbs %}
+		<ul class="breadcrumbs">
+			<li><a href="{% url 'home' %}">{% trans "Home" %}</a></li>
+			<li><a href="{% url 'news' %}">{% trans "News" %}</a></li>
+			<li>{{ news.title }}</li>
+		</ul>
+	{% endblock %}
+	<article class="news">
+		<h3 class="useful_information">{{ news.title }}</h3>
+			 <div class="news-item">
+				<p class="date">{{ news.date }}</p>
+				{% if news.title_image  %}
+					<img class="title_information_img" src="{{ news.title_image.url }}" alt="">
+				{% endif %}
+             	<div class="news_text">
+                    {{ news.body|safe }}
+             	</div>
+			</div>
+	</article>
+{% endblock %}

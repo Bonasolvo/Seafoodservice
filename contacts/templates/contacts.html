@@ -1,0 +1,160 @@
+{% extends 'new_base.html' %}
+{% load i18n admin_tools_menu_tags %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ MEDIA_URL }}css/jquery.contacts.css">
+    <script src="{{ MEDIA_URL }}js/jquery.maskedinput.js" type="text/javascript"></script>
+{% endblock %}
+
+{% block page %}
+    {% block breadcrumbs %}
+        <ul class="breadcrumbs">
+            <li><a href="{% url 'home' %}">{% trans "Home" %}</a></li>
+            <li>{% trans "Contacts" %}</li>
+        </ul>
+    {% endblock %}
+
+
+    {% if contacts %}
+    <article>
+        <h3 class="useful_information">{% trans "Our employees" %}</h3>
+    </article>
+        {% for contact in contacts %}
+            <div class="contacts_block">
+                <p class="post">{{ contact.contact.post }}</p>
+
+                <p class="name">{{ contact.contact.full_name }}</p>
+
+                <div class="contact_info">
+                    {% if contact.numbers %}
+                        <img src="{{ MEDIA_URL }}css/images/phone.png"
+                             alt="">
+                        {% for number in contact.numbers %}
+                            <p>{{ number }}</p>
+                        {% endfor %}
+                    {% endif %}
+
+                    {% if contact.emails %}
+                        <img src="{{ MEDIA_URL }}css/images/mail.png"
+                             alt="">
+                        {% for mail in contact.emails %}
+                            <a href="mailto:{{ mail }}"><p>{{ mail }}</p>
+                            </a>
+                        {% endfor %}
+                    {% endif %}
+
+                    {% if contact.skypes %}
+                        <img src="{{ MEDIA_URL }}css/images/skype.png"
+                             alt="">
+                        {% for skype in contact.skypes %}
+                            <a href="skype:{{ skype }}"><p>{{ skype }}</p>
+                            </a>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+        <div class="cls"></div>
+
+    {% endif %}
+
+
+    {% if office_contacts %}
+    <article>
+        <h3 class="useful_information">{% trans "Office Contacts" %}</h3>
+    </article>
+        <div class="ofices_contacts">
+            {% for contact in office_contacts %}
+                <p>{{ contact.contact.address }}</p>
+                <div class="office_info">
+                    {% if contact.numbers %}
+                        <p>
+                        <img src="{{ MEDIA_URL }}css/images/phone.png"
+                             alt="">
+
+                        {% for number in contact.numbers %}
+                            <a>{{ number }}</a>
+                        {% endfor %}
+                    </p>
+                    {% endif %}
+                    {% if contact.emails %}
+                        <p>
+                        <img src="{{ MEDIA_URL }}css/images/mail.png"
+                             alt="">
+
+                        {% for mail in contact.emails %}
+                            <a href="mailto:{{ mail }}">{{ mail }}</a>
+                        {% endfor %}
+                    </p>
+                    {% endif %}
+                    {% if contact.skypes %}
+                        <p>
+                        <img src="{{ MEDIA_URL }}css/images/skype.png"
+                             alt="">
+                        {% for skype in contact.skypes %}
+                            <a href="skype:{{ skype }}">{{ skype }}</a>
+                        {% endfor %}
+                    </p>
+                    {% endif %}
+                    {% if contact.faxs %}
+                        <p>
+                        <img src="{{ MEDIA_URL }}css/images/fax.png"
+                             alt="">
+                        {% for number in contact.numbers %}
+                            {{ number }}
+                        {% endfor %}
+                    </p>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+
+    {% endif %}
+
+    <article>
+        <h3 class="coord">{% trans "Our coordinates" %}</h3>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d9396.550337768962!2d27.5420675!3d53.9292995!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbc57e5ec3ebf3%3A0x5abc3d60c090ea35!2z0J3QvtCy0L7QstC40LvQtdC90YHQutCw0Y8g0YPQuy4gOCwg0JzQuNC90YHQuiwg0JHQtdC70LDRgNGD0YHRjA!5e0!3m2!1sru!2s!4v1412673455688"
+                width="794" height="378" frameborder="0"
+                style="margin-left:8px"></iframe>
+    </article>
+
+    <article>
+        <h3 class="message">{% trans "Please, leave a message" %}</h3>
+
+        <form action="" id="sendMessageForm" method='POST'>{% csrf_token %}
+            {% if form.errors %}
+                <p class="error_leave_message_label">
+                    {% for error in form.errors %}
+                        {{ error }}<br/>
+                    {% endfor %}
+                </p>
+            {% endif %}
+
+            {% for field in form %}
+                <div>
+                    <label for="id_{{ field.name }}">{{ field.label }} {% if field.field.required %}*{% endif %}</label>
+                    {% if field.name == 'number' %}
+                        <input id="id_{{ field.name }}"  type="text" placeholder="+XXX XX XXX XX XX" name="{{ field.name }}"/>
+                    {% else %}
+                        {{ field }}
+                    {% endif %}
+                    {% if field.name == 'captcha' %}<div class="cls"></div>{% endif %}
+                </div>
+            {% endfor %}
+            <p class="required">{% trans "Fields marked as * are required" %}</p>
+            <div>
+                <input type="submit" value="{% trans "Submit" %}"
+                       class="input_button"/>
+
+                <input type="reset" class="cancel" value="{% trans "Cancel" %}">
+                <div class="cls"></div>
+            </div>
+        </form>
+    <script>
+        jQuery(function($){
+           $("#id_number").mask("[+](999) 99 999 99 99");
+        });
+    </script>
+    </article>
+{% endblock %}
+	

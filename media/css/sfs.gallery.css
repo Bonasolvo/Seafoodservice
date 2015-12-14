@@ -1,0 +1,141 @@
+
+.photo_img {
+    list-style: none;
+    display: inline-block;
+    width: 31%;
+    align-self: flex-start;
+    padding: 1%;
+    cursor: pointer;
+}
+
+.img_in_gallery {
+    width: 100%;
+    height: 200px;
+}
+.certificate_in_gallery{
+    width: 226px;
+    height: 336px;
+    padding: 2px;
+    margin-bottom:1px;
+}
+#overlay {
+    background: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.9;
+    z-index: 9997;
+    display: none;
+}
+#wrap_frame{
+    top: 7%;
+    z-index: 9998;
+    position: fixed;
+    display: none;
+    margin-right: 200px;
+}
+
+#frame {
+    display: inline-block;
+    margin: 20px auto 0;
+    position: relative;
+}
+#right_arrow, #left_arrow {
+    cursor: pointer;
+    z-index: 9998;
+    position: absolute;
+    bottom: 60%;
+    max-height: 40px;
+    max-width: 40px;
+}
+#right_arrow {
+    right: 5px;
+}
+#left_arrow {
+    left: 5px;
+}
+
+.description {
+    background: #f2f2f2;
+    width: 96%;
+    height: auto;
+    padding: 2%;
+    position: relative;
+    z-index: 9999;
+    display: none;
+    margin: 0 auto 0;
+}
+.description p {
+    padding-bottom: 5px;
+    font-size: 18px;
+    color: #494949;
+}
+#close2 {
+    position: absolute;
+    cursor: pointer;
+}
+.close2 {
+    position: absolute;
+    top: 20px;
+    right: 3%;
+    cursor: pointer;
+}
+
+    #big_photo_img {
+        max-width: 100%;
+    }
+
+.close {
+    position: absolute;
+    top: 20px;
+    height: 15px;
+    left: 45%;
+    margin-right: 100px;
+    cursor: pointer;
+}
+@media screen and (max-height: 900px){
+
+    #big_photo_img {
+        max-height: 650px;
+    }
+}
+@media screen and (max-height: 800px){
+    #frame{
+        max-height: 670px;
+    }
+
+    #big_photo_img {
+        max-height: 570px;
+    }
+}
+@media screen and (max-height: 768px){
+    #frame{
+        margin: 15px auto 0;
+    }
+
+
+    .description p{
+        font-size: 12px;
+    }
+    #big_photo_img {
+        max-height: 538px;
+    }
+}
+@media screen and (max-height: 600px){
+    #frame{
+        max-height: 450px;
+    }
+
+    .description h3{
+        font-size: 15px;
+        padding-bottom: 4px;
+    }
+    .description a{
+        font-size: 15px;
+    }
+    #big_photo_img {
+        max-height: 370px;
+    }
+}

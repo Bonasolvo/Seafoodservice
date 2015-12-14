@@ -1,0 +1,61 @@
+{% extends 'new_base.html' %}
+{% load i18n admin_tools_menu_tags %}
+	{% block head %}
+        <script src="{{MEDIA_URL}}js/gallery_size.js"></script>
+        <script src="{{MEDIA_URL}}js/jquery.min.js"></script>
+        <script src="{{MEDIA_URL}}js/visuallightbox.js"></script>
+        <link rel="stylesheet" href="{{ MEDIA_URL }}css/sfs.gallery.css">
+        <link rel="stylesheet" href="{{ MEDIA_URL }}css/visuallightbox.css">
+        <link rel="stylesheet" href="{{ MEDIA_URL }}css/vlightbox1.css">
+	{% endblock %}
+
+	{% block page %}
+		{% block breadcrumbs %}
+			<ul class="breadcrumbs">
+				<li><a href="{% url 'home' %}">{% trans "Home" %}</a></li>
+				<li>{% trans "Gallery" %}</li>
+			</ul>
+		{% endblock %}
+		<article>
+			{% if videos %}
+			<h3 class="useful_information">{% trans "video" %}</h3>
+			<div id="video_gallery" class="video_gallery">
+				{% for video in videos %}
+
+				   <video height="173" controls poster="{{ MEDIA_URL }}{{ video.video_image }}" id="{% cycle 'myVideo1' 'myVideo2' %}" class="right_video">
+                        {% for video_file in video.videos %}
+						<source src="{{ MEDIA_URL }}{{ video_file.file }}" type="{{ video_file.type }}">
+                        {% endfor %}
+						Your browser does not support HTML5 video.
+						<br><a>{{ video.description }}</a>
+				   </video>
+				{% endfor %}
+				<br>
+			</div>
+			{% endif %}
+			<h3 class="photo_title">{% trans "photos" %}</h3>
+			{% if photos %}
+              <div id="photo_gallery">
+				{% for i, photo in photos %}
+                    <a href="{{ MEDIA_URL }}{{ photo.photo }}" class="photo_img" title="{{ photo.title }}{% if photo.title and photo.description %}||{% endif %}{{ photo.description }}">
+					    <img src="{{ MEDIA_URL }}{{ photo.photo }}" class="img_in_gallery" alt="" >
+                    </a>
+				{% endfor %}
+			</div>
+			{% endif %}
+		</article>
+    <script>set_width_to_media_files();</script>
+    <script src="{{MEDIA_URL}}js/vlbdata1.js"></script>
+	<div id="overlay"></div>
+		<div id="wrap_frame">
+		<div id="frame">
+		<img src="" id="big_photo_img">
+		<img src="{{ MEDIA_URL }}css/images/arrow_left_photo.png" alt="" id="left_arrow">
+		<img src="{{ MEDIA_URL }}css/images/arrow_right_photo.png" alt="" id="right_arrow">
+		</div> 
+		<div class="description">
+		</div>
+		<img class="close" src="{{ MEDIA_URL }}css/images/close.png" alt="" id="close2">
+	</div>
+	{% endblock %}
+	

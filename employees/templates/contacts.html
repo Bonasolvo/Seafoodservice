@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+	{% block head %}
+		{{ block.super }}
+		<script src="{{MEDIA_URL}}js/popup.js"></script>
+	{% endblock %}
+
+	{% block content %}
+		{{ block.super }}
+		{% block breadcrumbs %}
+			<ul class="breadcrumbs">
+				<li><a href="../">Главная</a></li>
+				<li>Контакты</li>
+			</ul>
+		{% endblock %}
+		<div>
+			<h3 class="useful_information">наши сотрудники</h3>
+				{% for contact in contacts %}
+				<div class="contacts_block">
+					<p class="post">{{ contact.contact.post }}</p>
+					<p class="name">{{ contact.contact.full_name }}</p>
+					<div class="contact_info">
+						{% if contact.numbers  %}
+						<img src="{{MEDIA_URL}}css/images/phone.png" alt="">
+						{% for number in contact.numbers %}
+						<p>{{ number }}</p>
+						{% endfor %}
+						{% endif %}
+						
+						{% if contact.mails  %}
+						<img src="{{MEDIA_URL}}css/images/mail.png" alt="">
+						{% for mail in contact.mails %}
+							<a href="mailto:{{ mail }}"><p>{{ mail }}</p></a>
+						{% endfor %}
+						{% endif %}
+						
+						{% if contact.skypes  %}
+						<img src="{{MEDIA_URL}}css/images/skype.png" alt="">
+						{% for skype in contact.skypes %}
+							<a href="skype:skype"><p>skype</p></a>
+						{% endfor %}
+						{% endif %}
+					</div>
+				</div>
+				{% endfor %}
+		</div>
+	{% endblock %}
+	

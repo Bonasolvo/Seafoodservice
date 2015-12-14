@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load i18n admin_tools_menu_tags %}
+	{% block head %}
+		{{ block.super }}
+		<script src="{{ MEDIA_URL }}js/slider.js"></script>
+	{% endblock %}
+	
+	{% block content %}
+	{{ block.super }}
+		{% if slides %}
+		<div id="slider" class="slider">
+			<img src="{{ MEDIA_URL }}{{ slides|first }}" alt="" id="img" onclick="window.location.href = {% url "get_slide_images" %}" class="slider_image">
+				<div class="arrows">
+				<div id="arrows_left" class="left"><img src="{{ MEDIA_URL }}css/images/arrow_left.png" alt=""></div>
+				<div id="arrows_right" class="right"><img src="{{ MEDIA_URL }}css/images/arrow_right.png" alt=""></div>
+			</div>
+			<div id="controls" class="controls">
+            </div>
+            {% for slide in slides %}
+                <div class="slide">
+                    <img id="slide_image_{{ i }}" src="{{ MEDIA_URL }}{{ slide.photo.name }}" alt="" style="display: none">
+                </div>
+            {% endfor %}
+
+		</div>
+		{% endif %}
+		<h3>{% trans 'UE "SEAFOOD SERVICE"' %} </h3>
+		{{ main_page.body | safe}}
+		<div class="our_partners">
+			<h3>{% trans "Our partners" %}</h3>
+			<div id="carousel_logo">
+				<ul id="carousel_slides">
+					{% for partner in partners %}
+						<div class="carousel_slides">
+							<p>{{ partner.company_name }}</p>
+							<img src="{{MEDIA_URL}}{{partner.logotype}}" alt="{{partner.company_name}}">
+						</div>
+					{% endfor %}
+				</ul>
+			</div>
+            <div class="our_partners_arrows">
+			<img src="{{MEDIA_URL}}css/images/arrow_left.png" alt="" class="logo_left">
+			<img src="{{MEDIA_URL}}css/images/arrow_right.png" alt="" class="logo_right">
+		</div>  
+{% endblock %}

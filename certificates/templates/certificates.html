@@ -1,0 +1,55 @@
+{% extends 'new_base.html' %}
+{% load i18n admin_tools_menu_tags %}
+	{% block head %}
+        <script src="{{MEDIA_URL}}js/gallery_size.js"></script>
+        <script src="{{MEDIA_URL}}js/jquery.min.js"></script>
+        <script src="{{MEDIA_URL}}js/visuallightbox.js"></script>
+        <link rel="stylesheet" href="{{ MEDIA_URL }}css/sfs.gallery.css">
+        <link rel="stylesheet" href="{{ MEDIA_URL }}css/visuallightbox.css">
+        <link rel="stylesheet" href="{{ MEDIA_URL }}css/vlightbox1.css">
+	{% endblock %}
+
+	{% block page %}
+		{% block breadcrumbs %}
+			<ul class="breadcrumbs">
+				<li><a href="{% url 'home' %}">{% trans "Home" %}</a></li>
+				<li>{% trans "Certificates" %}</li>
+			</ul>
+		{% endblock %}
+		<div>
+			<h3 class="photo_title">{% trans "Certificates" %}</h3>
+              <div id="photo_gallery">
+				{% for i, certificate in certificates %}
+                <a class="photo_img" href="{{ MEDIA_URL }}{{ certificate.image }}" title="{{ certificate.title }}{% if certificate.title and certificate.description %}||{% endif %}{{ certificate.description }}">
+					<img  src="{{ MEDIA_URL }}{{ certificate.image }}" class="certificate_in_gallery" alt="">
+                </a>
+				{% endfor %}
+			</div>
+
+			{% if photos %}
+              <div id="photo_gallery">
+				{% for i, photo in photos %}
+                    <a href="{{ MEDIA_URL }}{{ photo.photo }}" class="photo_img" title="{{ photo.title }}/n{{ photo.description }}">
+					    <img src="{{ MEDIA_URL }}{{ photo.photo }}" class="img_in_gallery" alt="" >
+                    </a>
+				{% endfor %}
+			</div>
+			{% endif %}
+
+		</div>
+        <div class="cls"></div>
+        <script src="{{ MEDIA_URL }}js/vlbdata1.js" type="text/javascript"></script>
+        <script>set_width_to_images();</script>
+    <div id="overlay"></div>
+		<div id="wrap_frame">
+		<div id="frame">
+		<img src="{{ MEDIA_URL }}css/images/arrow_left_photo.png" alt="" id="left_arrow">
+		<img src="{{ MEDIA_URL }}css/images/arrow_right_photo.png" alt="" id="right_arrow">
+
+		<img src="" id="big_photo_img">
+		</div>
+		<div class="description">
+		</div>
+		<img class="close2" src="{{ MEDIA_URL }}css/images/close.png" alt="" id="close2">
+	</div>
+	{% endblock %}

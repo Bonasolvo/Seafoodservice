@@ -1,0 +1,12 @@
+django==1.5.4
+django_admin_tools==0.5.2
+django_summernote==0.5.15
+django_staticfiles==1.2.1
+django_suit==0.2.5
+django_mptt==0.6.0
+psycopg2
+django-tinymce
+django-modeltranslation
+django-simple-captcha
+pillow==2.6.1
+south

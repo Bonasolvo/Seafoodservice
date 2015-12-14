@@ -1,0 +1,36 @@
+{% extends 'new_base.html' %}
+{% load i18n admin_tools_menu_tags helper_show %}
+
+{% block news %}
+    {% show 'usefull_information' 5 %}
+{% endblock %}
+
+{% block page %}
+	{% block breadcrumbs %}
+		<ul class="breadcrumbs">
+			<li><a href="{% url 'home' %}">{% trans "Home" %}</a></li>
+			<li>{% trans "News" %}</li>
+		</ul>
+	{% endblock %}
+
+	<article class="news">
+		<h3>{% trans "News" %}</h3>
+		{% for news_item in news %}
+			<div class="news-item {% cycle 'news1' 'news2' %}">
+				<p class="date">{{ news_item.date }}</p>
+                {% if news_item.title  %}
+                    <div class="news_title">{{ news_item.title|upper}}</div>
+                {% endif %}
+                {% if news_item.title_image %}
+                <img class="title_information_img" style="width:70px; height:70px; margin: 6px;" src="{{ MEDIA_URL }}{{ news_item.title_image }}" alt="">
+
+                {% endif %}
+                    <div class="text_news">
+                        <a href="{% url "news_item" news_item.id %}">
+                            {{ news_item.body|safe|striptags|truncatechars:400 }}
+                        </a>
+                    </div>
+            </div>
+		{% endfor %}
+	</article>
+{% endblock %}

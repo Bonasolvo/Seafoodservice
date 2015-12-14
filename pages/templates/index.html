@@ -1,0 +1,66 @@
+{% extends 'new_base.html' %}
+{% load i18n admin_tools_menu_tags %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ MEDIA_URL }}css/jquery.bxslider.css">
+    <script src="{{ MEDIA_URL }}js/jquery.bxslider.min.js"></script>
+{% endblock %}
+
+{% block page %}
+    {% if slides %}
+        <ul id="slider" class="slider">
+        {% for slide in slides %}
+            <li><img src="{{ slide.photo.url }}"/></li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+
+    <article>
+        <h3>{% trans 'UE "SEAFOOD SERVICE"' %} </h3>
+        {{ main_page.body | safe }}
+    </article>
+
+    <div class="our_partners">
+        <h3>{% trans "Our partners" %}</h3>
+
+        <ul class="partner_slide">
+            {% for partner in partners %}
+                <li>
+                    <p>{{ partner.company_name }}</p>
+                    <a href="{{ partner.url }}" target="_blank"><img src="{{ partner.logotype.url }}"
+                         alt="{{ partner.company_name }}"></a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
+
+{% block extrajs %}
+    <script>
+    $(document).ready(function(){
+        $('.slider').bxSlider({
+            mode: 'fade'
+        });
+            $('#slider').css("max-height",450);
+            $('#slider').parent().css("max-height",450);
+            $('#slider').css("height",$('#slider li img:visible').height());
+            $('#slider').parent().css("height",$('#slider li img:visible').height());
+            $('#slider').parent().parent().find('.bx-pager.bx-default-pager').css({bottom:"30px"});
+        $('.partner_slide').bxSlider({
+            minSlides: 3,
+            maxSlides: 3,
+            slideWidth: 200,
+            slideMargin: 30,
+            width: 700,
+            autoControls: false,
+            infiniteLoop: false,
+            hideControlOnEnd: true
+        });
+
+        $('.slider li img').click(function(){
+            window.location.href = {% url "get_slide_images" %};
+        });
+    });
+    </script>
+
+{% endblock %}

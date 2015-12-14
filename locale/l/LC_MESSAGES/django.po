@@ -1,0 +1,528 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-11-03 13:57+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: .\dashboard.py:28
+msgid "Quick links"
+msgstr "Быстрая ссылка"
+
+#: .\dashboard.py:34
+msgid "Return to site"
+msgstr "Вернуться на сайт"
+
+#: .\dashboard.py:35 .\pages\templates\admin\base.html.py:36
+msgid "Change password"
+msgstr "Изменить пароль"
+
+#: .\dashboard.py:37 .\pages\templates\admin\base.html.py:38
+msgid "Log out"
+msgstr "Выйти"
+
+#: .\dashboard.py:43 .\menu.py:25
+msgid "Applications"
+msgstr "Приложения"
+
+#: .\dashboard.py:50 .\menu.py:29
+msgid "Administration"
+msgstr "Администрирование"
+
+#: .\dashboard.py:55 .\dashboard.py:73
+msgid "Recent Actions"
+msgstr "Последние действия"
+
+#: .\menu.py:22
+msgid "Dashboard"
+msgstr "Доска"
+
+#: .\certificates\__init__.py:2
+#: .\certificates\templates\certificates.html.py:13
+#: .\certificates\templates\certificates.html.py:17
+#: .\pages\templates\base.html.py:110
+#, fuzzy
+msgid "Certificates"
+msgstr "Сертификаты"
+
+#: .\certificates\models.py:9
+msgid "Certificate image"
+msgstr "Изображение сертификата"
+
+#: .\certificates\models.py:10 .\gallery\models.py:12 .\gallery\models.py:30
+#: .\services\models.py:9 .\transporation\models.py:37
+msgid "Description"
+msgstr "Описание"
+
+#: .\certificates\templates\certificates.html.py:12
+#: .\contacts\templates\contacts.html.py:9
+#: .\gallery\templates\gallery.html.py:14
+#: .\information\templates\news.html.py:24
+#: .\information\templates\news_item.html.py:24
+#: .\information\templates\usefull_information.html.py:13
+#: .\information\templates\usefull_information_item.html.py:8
+#: .\pages\templates\base.html.py:53 .\pages\templates\base.html.py:145
+#: .\pages\templates\admin\app_index.html.py:9
+#: .\pages\templates\admin\base.html.py:47
+#: .\services\templates\services.html.py:13
+#: .\transporation\templates\change_form.html.py:19
+#: .\transporation\templates\admin\change_form.html.py:19
+#: .\transporation\templates\admin\transporation\change_form.html.py:19
+#: .\transporation\templates\admin\transporation\transportationsgeography\change_form.html.py:23
+msgid "Home"
+msgstr "Главная"
+
+#: .\contacts\__init__.py:2 .\contacts\models.py:32 .\employees\__init__.py:2
+msgid "Employees"
+msgstr "Работники"
+
+#: .\contacts\forms.py:9
+#, fuzzy
+msgid "Letters from picture"
+msgstr "Цифры с картинки"
+
+#: .\contacts\models.py:10
+#, fuzzy
+msgid "Address"
+msgstr "Добавить"
+
+#: .\contacts\models.py:16
+#, fuzzy
+msgid "Office Contact"
+msgstr "Контакты"
+
+#: .\contacts\models.py:17 .\contacts\templates\contacts.html.py:49
+#, fuzzy
+msgid "Office Contacts"
+msgstr "Контакты"
+
+#: .\contacts\models.py:22
+msgid "First name"
+msgstr "Имя"
+
+#: .\contacts\models.py:23
+msgid "Last name"
+msgstr "Фамилия"
+
+#: .\contacts\models.py:24
+msgid "Second name"
+msgstr "Отчество"
+
+#: .\contacts\models.py:25
+msgid "Post"
+msgstr "Должность"
+
+#: .\contacts\models.py:31
+msgid "Employee"
+msgstr "Работник"
+
+#: .\contacts\models.py:38
+msgid "Number"
+msgstr "Номер"
+
+#: .\contacts\models.py:44
+msgid "TelephoneNumber"
+msgstr "Телефонный номер"
+
+#: .\contacts\models.py:45
+msgid "TelephoneNumbers"
+msgstr "Телефонные номера"
+
+#: .\contacts\models.py:50 .\contacts\models.py:56 .\contacts\models.py:87
+msgid "Email"
+msgstr "Email"
+
+#: .\contacts\models.py:57
+msgid "Emails"
+msgstr "Email адреса"
+
+#: .\contacts\models.py:61 .\contacts\models.py:67
+msgid "Skype"
+msgstr "Skype"
+
+#: .\contacts\models.py:68
+msgid "Skype records"
+msgstr "Skype записи"
+
+#: .\contacts\models.py:74 .\contacts\models.py:80
+#: .\pages\templates\base.html.py:138
+msgid "Fax"
+msgstr "Факс"
+
+#: .\contacts\models.py:81
+msgid "Fax numbers"
+msgstr "Факс номера"
+
+#: .\contacts\models.py:85
+#, fuzzy
+msgid "Your name"
+msgstr "Ваше имя"
+
+#: .\contacts\models.py:86
+#, fuzzy
+msgid "Contact number"
+msgstr "Контакты"
+
+#: .\contacts\models.py:88
+msgid "Your message"
+msgstr "Ваше сообщение"
+
+#: .\contacts\views.py:21
+msgid "Thank you, we received your message."
+msgstr "Благодарим вас за сообщение, мы вам ответим."
+
+#: .\contacts\views.py:24
+#, fuzzy
+msgid ""
+"Form is not valid!\n"
+"Please correct your errors bellow."
+msgstr ""
+"Форма некорректна!\n"
+"Пожалуйста, исправьте ошибку ниже"
+
+#: .\contacts\templates\contacts.html.py:10 .\pages\templates\base.html.py:63
+#: .\pages\templates\base.html.py:154
+msgid "Contacts"
+msgstr "Контакты"
+
+#: .\contacts\templates\contacts.html.py:16
+#, fuzzy
+msgid "Our employees"
+msgstr "Наши работники"
+
+#: .\contacts\templates\contacts.html.py:93
+msgid "Our coordinates"
+msgstr "Наши координаты"
+
+#: .\contacts\templates\contacts.html.py:96
+msgid "Please, leave a message"
+msgstr "Оставьте сообщение"
+
+#: .\contacts\templates\contacts.html.py:127
+msgid "Fields marked as * are required"
+msgstr "Поля обозначенные * обязательны"
+
+#: .\contacts\templates\contacts.html.py:128
+msgid "Submit"
+msgstr "Отправить"
+
+#: .\contacts\templates\contacts.html.py:129
+#, fuzzy
+msgid "Cancel"
+msgstr "Отмена"
+
+#: .\gallery\__init__.py:2 .\gallery\templates\gallery.html.py:15
+#: .\pages\templates\base.html.py:104
+msgid "Gallery"
+msgstr "Галерея"
+
+#: .\gallery\models.py:10 .\gallery\models.py:28
+msgid "Image"
+msgstr "Изображение"
+
+#: .\gallery\models.py:13
+msgid "Add this photo to slide"
+msgstr "Добавить ли данное фото в слайд-шоу?"
+
+#: .\gallery\models.py:14 .\gallery\models.py:31
+msgid "Add this photo to gallery"
+msgstr "Добавить ли данное фото в галерею?"
+
+#: .\gallery\models.py:20
+msgid "Photo"
+msgstr "Фото"
+
+#: .\gallery\models.py:21
+msgid "Photos"
+msgstr "Фотографии"
+
+#: .\gallery\models.py:26 .\gallery\templates\gallery.html.py:20
+msgid "video"
+msgstr "Видео"
+
+#: .\gallery\models.py:37
+msgid "Video"
+msgstr "Видео"
+
+#: .\gallery\models.py:38
+msgid "Videos"
+msgstr "Видео файлы"
+
+#: .\gallery\templates\gallery.html.py:33
+#, fuzzy
+msgid "photos"
+msgstr "Фотографии"
+
+#: .\information\__init__.py:2
+#, fuzzy
+msgid "Information"
+msgstr "Информация"
+
+#: .\information\models.py:10 .\information\models.py:24
+#: .\transporation\models.py:36
+msgid "Title"
+msgstr "Заголовок"
+
+#: .\information\models.py:11 .\information\models.py:25
+#: .\information\models.py:38
+msgid "Body"
+msgstr "Оснавная часть"
+
+#: .\information\models.py:12 .\information\models.py:26
+msgid "Date"
+msgstr "Дата"
+
+#: .\information\models.py:18
+msgid "News Item"
+msgstr "Новость"
+
+#: .\information\models.py:19 .\information\views.py:33
+#: .\information\views.py:43 .\information\templates\news.html.py:25
+#: .\information\templates\news.html.py:29
+#: .\information\templates\news_item.html.py:25
+#: .\pages\templates\base.html.py:79
+msgid "News"
+msgstr "Новости"
+
+#: .\information\models.py:32
+#, fuzzy
+msgid "Useful information item"
+msgstr "Статья"
+
+#: .\information\models.py:33
+#: .\information\templates\usefull_information.html.py:14
+#: .\information\templates\usefull_information.html.py:18
+#: .\information\templates\usefull_information_item.html.py:9
+#: .\pages\templates\base.html.py:91 .\pages\templates\base.html.py:151
+#, fuzzy
+msgid "Useful information"
+msgstr "Полезная информация"
+
+#: .\information\models.py:44 .\information\models.py:45
+msgid "Main Page"
+msgstr "Главная  страница"
+
+#: .\information\views.py:12 .\information\views.py:23
+#: .\information\templates\news.html.py:10
+#: .\information\templates\news_item.html.py:10
+#, fuzzy
+msgid "Usefull information"
+msgstr "Статья"
+
+#: .\pages\templates\base.html.py:23
+msgid "In partnership with success"
+msgstr "В партнёрстве с успехом!"
+
+#: .\pages\templates\base.html.py:56 .\pages\templates\base.html.py:148
+#: .\services\__init__.py:2 .\services\models.py:17
+#: .\services\templates\services.html.py:14
+#: .\services\templates\services.html.py:17
+msgid "Services"
+msgstr "Услуги"
+
+#: .\pages\templates\base.html.py:60
+#, fuzzy
+msgid "Useful Information"
+msgstr "Статья"
+
+#: .\pages\templates\base.html.py:130
+msgid "RB, Minsk, 220053"
+msgstr "РБ, Минск, 220053"
+
+#: .\pages\templates\base.html.py:132
+msgid "str. Novovilenskaya, 8, 24"
+msgstr "ул. Нововиленская, 8, 24"
+
+#: .\pages\templates\base.html.py:134
+#, fuzzy
+msgid "Numb."
+msgstr "Ном."
+
+#: .\pages\templates\base.html.py:140
+msgid "Go to map"
+msgstr "Посмотреть на карте"
+
+#: .\pages\templates\base.html.py:163
+msgid "Site is developed "
+msgstr "Сайт разаработан "
+
+#: .\pages\templates\base.html.py:164
+msgid "by studio Zod4ie"
+msgstr "студией Zod4ie"
+
+#: .\pages\templates\main.html.py:27
+msgid "UE \"SEAFOOD SERVICE\""
+msgstr "УП \"Сифуд-Сервис\""
+
+#: .\pages\templates\main.html.py:30
+#, fuzzy
+msgid "Our partners"
+msgstr "Наши партнёры"
+
+#: .\pages\templates\admin\base.html.py:28
+msgid "Welcome,"
+msgstr "Добро пожаловать,"
+
+#: .\pages\templates\admin\base.html.py:33
+#, fuzzy
+msgid "Documentation"
+msgstr "Документация"
+
+#: .\pages\templates\admin\base_site.html.py:4
+#, fuzzy
+msgid "SeaFoodService site admin"
+msgstr "Администрация сайта"
+
+#: .\pages\templates\admin\base_site.html.py:16
+#, fuzzy
+msgid "SeaFoodService administration"
+msgstr "SeaFoodService администрация"
+
+#: .\pages\templates\admin_tools\dashboard\dashboard.html.py:62
+msgid "Modules"
+msgstr "Модули"
+
+#: .\pages\templates\admin_tools\dashboard\modules\app_list.html.py:13
+#: .\pages\templates\admin_tools\dashboard\modules\model_list.html.py:11
+#: .\transporation\templates\change_form.html.py:22
+#: .\transporation\templates\admin\change_form.html.py:22
+#: .\transporation\templates\admin\transporation\change_form.html.py:22
+#: .\transporation\templates\admin\transporation\transportationsgeography\change_form.html.py:26
+msgid "Add"
+msgstr "Добавить"
+
+#: .\pages\templates\admin_tools\dashboard\modules\app_list.html.py:14
+#: .\pages\templates\admin_tools\dashboard\modules\model_list.html.py:12
+msgid "Change"
+msgstr "Изменить"
+
+#: .\pages\templates\admin_tools\menu\menu.html.py:32
+msgid "Please enter a name for the bookmark"
+msgstr "Пожалуйста, введите имя для записи"
+
+#: .\partners\__init__.py:2 .\partners\models.py:14
+msgid "Partners"
+msgstr "Партнёры"
+
+#: .\partners\models.py:6
+msgid "Company name"
+msgstr "Имя компании"
+
+#: .\partners\models.py:7
+msgid "Logo"
+msgstr "Логотип"
+
+#: .\partners\models.py:13
+msgid "Partner"
+msgstr "Партнёр"
+
+#: .\seafoodservice\settings.py:39
+msgid "Russian"
+msgstr "Русский"
+
+#: .\seafoodservice\settings.py:40
+msgid "English"
+msgstr "Английский"
+
+#: .\services\models.py:10
+msgid "Is fundamental service?"
+msgstr "Это ли основная услуга"
+
+#: .\services\models.py:16
+msgid "Service"
+msgstr "Услуга"
+
+#: .\services\templates\services.html.py:18
+msgid "UE \"Seafood-Service\""
+msgstr "УП \"Сифуд-Сервис\""
+
+#: .\services\templates\services.html.py:18
+msgid ""
+" provides a range of freight forwarding delivery services by wagonloads and "
+"containers train shipment:"
+msgstr ""
+" оказывает комплекс транспортно-экспедиционных услуг по доставке грузов "
+"железнодорожным транспортом повагонными и контейнерными отправками:"
+
+#: .\services\templates\services.html.py:30
+msgid "Additional services"
+msgstr "Дополнительные услуги"
+
+#: .\services\templates\services.html.py:42
+#, fuzzy
+msgid "Transporation points"
+msgstr "География перевозок"
+
+#: .\transporation\__init__.py:2
+#, fuzzy
+msgid "Transporation"
+msgstr "География перевозок"
+
+#: .\transporation\models.py:9
+msgid "Enter longitude value from diapason [-90, 90]"
+msgstr "Введите, пожалуйста, долготу в диапазоне [-90,90]"
+
+#: .\transporation\models.py:22
+msgid "Enter latitude value from diapason [-180, 180]"
+msgstr "Введите, пожалуйста, долготу в диапазоне [-180,180]"
+
+#: .\transporation\models.py:38
+msgid "Longitude"
+msgstr "Долгота"
+
+#: .\transporation\models.py:39
+msgid "Latitude"
+msgstr "Широта"
+
+#: .\transporation\models.py:42
+msgid "Transportation Geography"
+msgstr "География перевозок"
+
+#: .\transporation\models.py:43
+msgid "Transportations Geography"
+msgstr "Координаты перевозок"
+
+#: .\transporation\templates\change_form.html.py:32
+#: .\transporation\templates\admin\change_form.html.py:32
+#: .\transporation\templates\admin\transporation\change_form.html.py:32
+#: .\transporation\templates\admin\transporation\transportationsgeography\change_form.html.py:36
+msgid "History"
+msgstr "История"
+
+#: .\transporation\templates\change_form.html.py:33
+#: .\transporation\templates\admin\change_form.html.py:33
+#: .\transporation\templates\admin\transporation\change_form.html.py:33
+#: .\transporation\templates\admin\transporation\transportationsgeography\change_form.html.py:37
+#, fuzzy
+msgid "View on site"
+msgstr "Вернуться на сайт"
+
+#: .\transporation\templates\change_form.html.py:44
+#: .\transporation\templates\admin\change_form.html.py:44
+#: .\transporation\templates\admin\transporation\change_form.html.py:44
+#: .\transporation\templates\admin\transporation\transportationsgeography\change_form.html.py:49
+msgid "Please correct the error below."
+msgid_plural "Please correct the errors below."
+msgstr[0] "Пожалуйста, исправьте ошибку ниже"
+msgstr[1] "Пожалуйста, исправьте ошибки ниже."
+msgstr[2] ""
+
+#~ msgid "Information Item"
+#~ msgstr "Статья с полезной информацией"
+
+#, fuzzy
+#~ msgid "Office contacts"
+#~ msgstr "Контакты офиса"
